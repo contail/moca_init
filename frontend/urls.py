@@ -1,8 +1,9 @@
 from django.conf.urls import url
 from django.urls import path
 
-from frontend import views
+from frontend.views import main_index, web_server
 
 urlpatterns = [
-    url(r'^$', views.main_index, name='post_list'),
+    path('web_server/', web_server),
+    path('main_index/', main_index),
 ]
