@@ -10,12 +10,13 @@
 <div style="width:480px; height:160px; ">
 
   <div style="float:left; width:20%; height: 10%; margin-left:20%; margin-top:25%;">
-    <div id="1" onclick="select(this)" class="">영상촬영</div>
-    <div id="6" onclick="select(this)" style="margin-top:50px" class="">피드백</div>
+    <button id="recode" name="open" href="#" data-toggle="modal" class="btn btn-danger"> 영상촬영  </button>
+    <button id="feedback" name="open" href="#" data-toggle="modal" class="btn btn-danger"style="margin-top:50px"> 피드백  </button>
   </div>
   <div style="float:left; width:20%; height: 10%; margin-left:15%; margin-top:25%;">
       <button id="web_server" name="open" href="#" data-toggle="modal" class="btn btn-danger"> 웹저장소 시작  </button>
-    <div id="7" onclick="select(this)" style="margin-top:50px" class="">환경설정</div>
+    <button id="env" name="open" onclick="window.open('../env_settings','popUpWindow','height=340,width=480,left=0,top=0,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');" data-toggle="modal" class="btn btn-danger" style="margin-top:50px"> 환경설정  </button>
+
   </div>
 
 
