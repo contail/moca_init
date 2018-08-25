@@ -9,6 +9,7 @@ from rest_framework.decorators import api_view
 
 
 from frontend.models import Settings
+from frontend.serializers import SettingsSerializer
 
 from web.celery import app
 from frontend.tasks import run_web_server, stop_web_server
@@ -48,6 +49,36 @@ def web_server(request):
 def feed_back(request):
     return
 
-@api_view
-def settings(request):
-    return
+@api_view(['GET'])
+def env_settings(request):
+    query = Settings.objects.get(id=1)
+    settings_serializers = SettingsSerializer(query).data
+    ip_array = settings_serializers['ip_address'].split('.')
+    settings_serializers['ip1'] = ip_array[0]
+    settings_serializers['ip2'] = ip_array[1]
+    settings_serializers['ip3'] = ip_array[2]
+    settings_serializers['ip4'] = ip_array[3]
+    return render(request, 'env.html', settings_serializers)
+
+@api_view(['GET'])
+def change_env_values(request):
+    value = request.GET.get('value')
+    get_type = request.GET.get('type')
+    if get_type == 'fps':
+        env = Settings.objects.get(id=1)
+        env.fps = value
+        env.save()
+    if get_type == 'port':
+        env = Settings.objects.get(id=1)
+        env.port = value
+        env.save()
+    if get_type == 'ip_address':
+        env = Settings.objects.get(id=1)
+        env.ip_address = value
+        env.save()
+    if get_type == 'batch_size':
+        env = Settings.objects.get(id=1)
+        env.batch_size = value
+        env.save()
+    text = '정상적으로 변경되었습니다.'
+    return JsonResponse({'message': text})
