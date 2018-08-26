@@ -3,8 +3,6 @@ from django.shortcuts import render
 
 
 # Create your views here.
-from fabric import task, runners
-from rest_framework import status
 from rest_framework.decorators import api_view
 
 
@@ -45,9 +43,16 @@ def web_server(request):
 
     return JsonResponse({'message': text, 'status' : status})
 
-@api_view
-def feed_back(request):
-    return
+@api_view(['GET','POST'])
+def feedback(request):
+    if request.method == 'GET':
+
+        return render(request, 'feedback.html')
+    else:
+        image = request.FILES['file']
+        print (image)
+        return JsonResponse({'message': "성공적으로 처리되었습니다."})
+
 
 @api_view(['GET'])
 def env_settings(request):
