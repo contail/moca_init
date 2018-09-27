@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-
+import time
 
 # Create your views here.
 from rest_framework.decorators import api_view
@@ -55,6 +55,9 @@ def feedback(request):
             return JsonResponse({'message': "이미지를 선택해주세요."})
 
         print (image)
+
+        for i in  range(0,10):
+            time.sleep(1)
         return JsonResponse({'message': "성공적으로 처리되었습니다."})
 
 
