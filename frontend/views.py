@@ -16,7 +16,7 @@ from frontend.tasks import run_web_server, stop_web_server
 def main_index(request):
     return render(request,'index.html')
 
-@api_view
+@api_view(['GET','POST'])
 def recode_video(request):
     return render(request,'video.html')
 
@@ -49,7 +49,11 @@ def feedback(request):
 
         return render(request, 'feedback.html')
     else:
-        image = request.FILES['file']
+        try:
+            image = request.FILES['file']
+        except:
+            return JsonResponse({'message': "이미지를 선택해주세요."})
+
         print (image)
         return JsonResponse({'message': "성공적으로 처리되었습니다."})
 
