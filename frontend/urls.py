@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.urls import path
 
-from frontend.views import main_index, web_server,env_settings,change_env_values,feedback,recode_video
+from frontend.views import main_index, web_server,env_settings,change_env_values,feedback,recode_video,recode_state
 
 urlpatterns = [
     path('web_server/', web_server),
@@ -9,5 +9,6 @@ urlpatterns = [
     path('env_settings/',env_settings),
     path('change_env_values/',change_env_values),
     path('feedback/',feedback),
-    path('recode_video/',recode_video)
+    path('recode_video/',recode_video),
+    path('recode_state/', recode_state)
 ]

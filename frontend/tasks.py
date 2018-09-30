@@ -14,4 +14,9 @@ def stop_web_server(ip_address, port):
     append_command = "| awk '{ print $1 }')"
     subprocess.Popen(command+append_command, stdout=subprocess.PIPE, shell=True)
 
+@app.task
+def start_piCamera():
+    command = "python recode.py"
+    subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+
 

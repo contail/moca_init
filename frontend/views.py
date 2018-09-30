@@ -10,7 +10,7 @@ from frontend.models import Settings
 from frontend.serializers import SettingsSerializer
 
 from web.celery import app
-from frontend.tasks import run_web_server, stop_web_server
+from frontend.tasks import run_web_server, stop_web_server, start_piCamera
 
 
 def main_index(request):
@@ -18,7 +18,26 @@ def main_index(request):
 
 @api_view(['GET','POST'])
 def recode_video(request):
+
     return render(request,'video.html')
+
+@api_view(['GET','POST'])
+def recode_state(request):
+    status = request.GET.get('data')
+
+    text = ''
+    if status == 'start_rec':
+
+        text = u'촬영이 시작 되었습니다.'
+        #촬영 시작
+        #start_piCamera
+
+    else:
+
+        text = u'촬영이 종료되었습니다.'
+    return JsonResponse({'message': text, 'status': status})
+
+
 
 
 @app.task
