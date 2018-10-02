@@ -30,7 +30,7 @@ def recode_state(request):
 
         text = u'촬영이 시작 되었습니다.'
         #촬영 시작
-        #start_piCamera
+        start_piCamera()
 
     else:
 
