@@ -19,4 +19,9 @@ def start_piCamera():
     command = "python recode.py"
     subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
 
+@app.task
+def change_mp4File():
+    command = "MP4Box -fps 30 -add test.h264 test1.mp4"
+    subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+
 

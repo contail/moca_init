@@ -147,8 +147,8 @@ $('#start').click(function() {
                 dataType: 'json',
                 success: function (data) {
                     if(data['status'] == 'start_rec'){
-                      document.getElementById("start").innerText = "촬영 종료";
-                      document.getElementById("start").name = "close_rec";
+                      document.getElementById("start").innerText = "촬영 시작";
+                      document.getElementById("start").name = "start_rec";
                     }
                     else{
                       document.getElementById("start").innerText = "촬영 시작";
