@@ -117,6 +117,13 @@
         <input id="file-input" type="file" name="file">
     </div>
 
+    <h3>피드백 할 영상을 선택해주세요!! </h3>
+    <div class="row">
+        <div class="file-preview"></div>
+        <label for="file-input">Select a File:</label>
+        <input id="file-input" type="file" name="file">
+    </div>
+
     <button class="btn btn-danger btn-lg" style="margin-top:40px; margin-left:140px; width:150px;height:50px"> <strong>피드백 시작</strong></button>
 </form>
 
@@ -160,7 +167,7 @@
                 url: window.location.pathname,
                 type: 'POST',
                 data: formData,
-                async: false,
+                async: true,
                 beforeSend: function(){
                 var element = document.getElementById("loading");
                 element.style.display="";
