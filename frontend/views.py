@@ -30,7 +30,7 @@ def recode_state(request):
 
         #촬영 시작
         start_piCamera()
-        change_mp4File()
+        # change_mp4File()
         text = u'촬영이 종료되었습니다.'
     return JsonResponse({'message': text, 'status': status})
 
