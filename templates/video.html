@@ -147,14 +147,14 @@ $('#start').click(function() {
                 dataType: 'json',
                 success: function (data) {
                     if(data['status'] == 'start_rec'){
-                      document.getElementById("start").innerText = "촬영 시작";
+                      document.getElementById("start").innerText = "모자이크 시작";
                       document.getElementById("start").name = "start_rec";
                     }
                     else{
                       document.getElementById("start").innerText = "촬영 시작";
                       document.getElementById("start").name = "start_rec";
                     }
-                    alert(data['message']);
+
                 },
                 error:function(request,status,error){
                     alert("code:"+request.status+"\n\n"+"message:"+request.responseText);
