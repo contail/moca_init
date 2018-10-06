@@ -150,6 +150,11 @@ $('#start').click(function() {
                       document.getElementById("start").innerText = "모자이크 시작";
                       document.getElementById("start").name = "start_mo";
                     }
+                    else if(data['status'] == 'start_mo'){
+                        alert(data['message']);
+                        document.getElementById("start").innerText = "촬영 시작";
+                        document.getElementById("start").name = "start_rec";
+                    }
                     else{
                       document.getElementById("start").innerText = "촬영 시작";
                       document.getElementById("start").name = "start_rec";
