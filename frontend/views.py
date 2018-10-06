@@ -32,6 +32,8 @@ def recode_state(request):
         start_piCamera()
         # change_mp4File()
         text = u'촬영이 종료되었습니다.'
+    elif status == 'start_mo':
+        text = 'u모자이크 처리가 시작되었습니다.'
     return JsonResponse({'message': text, 'status': status})
 
 
